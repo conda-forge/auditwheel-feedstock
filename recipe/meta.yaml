@@ -1,4 +1,4 @@
-{% set version = "1.4.0" %}
+{% set version = "1.8.0" %}
 
 package:
   name: auditwheel
@@ -7,7 +7,7 @@ package:
 source:
   fn: auditwheel-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/a/auditwheel/auditwheel-{{ version }}.tar.gz
-  md5: 2b989cb308ced9b237bae343653cc8ba
+  md5: e053e10ae66e1a39d86350e92713b68a
 
 build:
   number: 0
