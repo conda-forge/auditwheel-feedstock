@@ -12,12 +12,12 @@ source:
 build:
   number: 0
   skip: true  # [py2k or not linux]
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
     - python
-    - setuptools
-    - setuptools_scm
+    - pip
   run:
     - python
     - pyelftools >=0.24
