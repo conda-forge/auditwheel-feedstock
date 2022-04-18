@@ -1,4 +1,4 @@
-{% set version = "3.3.1" %}
+{% set version = "5.1.2" %}
 
 package:
   name: auditwheel
@@ -7,26 +7,21 @@ package:
 source:
   fn: auditwheel-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/a/auditwheel/auditwheel-{{ version }}.tar.gz
-  md5: 942a5d2cc3322767b4dd20c432516a45
+  sha256: 3ee5830014931ea84af5cd065c637b6614efa03d9b88bd8fbfc924e7ed01d6ba
 
 build:
-  number: 2
-  skip: true  # [py2k or not linux]
+  number: 0
+  skip: true  # [py<36 or not linux]
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - pbr
     - python
-    - setuptools
-    - pyelftools
-    - typing      # [py<35]
-
+    - pip
   run:
     - python
-    - setuptools
-    - pip
-    - pyelftools
-    - typing      # [py<35]
+    - pyelftools >=0.24
+    - importlib_metadata  # [py<38]
 
 test:
   commands:
