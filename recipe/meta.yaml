@@ -15,18 +15,13 @@ build:
 
 requirements:
   host:
-    - pbr
     - python
     - setuptools
-    - pyelftools
-    - typing      # [py<35]
-
+    - setuptools_scm
   run:
     - python
-    - setuptools
-    - pip
-    - pyelftools
-    - typing      # [py<35]
+    - pyelftools >=0.24
+    - importlib_metadata  # [py<38]
 
 test:
   commands:
