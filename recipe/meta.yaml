@@ -10,18 +10,18 @@ source:
   sha256: 3ee5830014931ea84af5cd065c637b6614efa03d9b88bd8fbfc924e7ed01d6ba
 
 build:
-  number: 0
-  skip: true  # [py<36 or not linux]
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
+  noarch: python
 
 requirements:
   host:
-    - python
+    - python >=3.8
     - pip
   run:
-    - python
+    - python >=3.8
     - pyelftools >=0.24
-    - importlib_metadata  # [py<38]
+    - __linux
 
 test:
   commands:
