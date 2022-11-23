@@ -1,4 +1,4 @@
-{% set version = "5.2.0" %}
+{% set version = "5.2.1" %}
 
 package:
   name: auditwheel
@@ -7,7 +7,7 @@ package:
 source:
   fn: auditwheel-{{ version }}.tar.gz
   url: https://pypi.io/packages/source/a/auditwheel/auditwheel-{{ version }}.tar.gz
-  sha256: 32c8e60d48e39e6d66bd3d49e8a30fbe44d686554420274fb2b9fc4720e91e7f
+  sha256: 504f9ca38bd884ce75f59e066ec80373abfc94ee65d0f807fe99f2b1d9ba774a
 
 build:
   number: 0
