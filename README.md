@@ -1,11 +1,11 @@
-About auditwheel
-================
+About auditwheel-feedstock
+==========================
+
+Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/auditwheel-feedstock/blob/main/LICENSE.txt)
 
 Home: https://github.com/pypa/auditwheel
 
 Package license: MIT
-
-Feedstock license: [BSD-3-Clause](https://github.com/conda-forge/auditwheel-feedstock/blob/main/LICENSE.txt)
 
 Summary: Linux wheel verification tool to ensure compatibility
 
