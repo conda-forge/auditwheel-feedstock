@@ -1,21 +1,27 @@
-{% set version = "5.3.0" %}
+{% set name = "auditwheel" %}
+{% set version = "5.4.0" %}
 
 package:
-  name: auditwheel
+  name: {{ name|lower }}
   version: {{ version }}
 
 source:
   url: https://pypi.io/packages/source/a/auditwheel/auditwheel-{{ version }}.tar.gz
-  sha256: d0be87b5b6fb767eacf1ea4afa3292574cb0f4473a3c0ba55bc9dff1d0b5a333
+  sha256: aaf8153ab7a29cc99a663ce2498804daf1887ea1b7a3231ba0d3fee68a3ccf19
 
 build:
-  number: 0
-  script: {{ PYTHON }} -m pip install . -vv
+  entry_points:
+    - auditwheel = auditwheel.main:main
   noarch: python
+  script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  number: 0
 
 requirements:
   host:
     - python >=3.8
+    - setuptools >=45
+    - wheel
+    - setuptools-scm >=6.2
     - pip
   run:
     - python >=3.8
@@ -23,13 +29,20 @@ requirements:
     - __linux
 
 test:
+  imports:
+    - auditwheel
   commands:
-    - auditwheel -h
+    - pip check
+    - auditwheel --help
+  requires:
+    - pip
 
 about:
   home: https://github.com/pypa/auditwheel
   license: MIT
-  license_file: LICENSE
+  license_file:
+    - LICENSE
+    - src/auditwheel/_vendor/wheel/LICENSE.txt
   summary: Linux wheel verification tool to ensure compatibility
 
 extra:
