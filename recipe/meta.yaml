@@ -24,6 +24,7 @@ requirements:
     - setuptools-scm >=6.2
     - pip
   run:
+    - packaging >=20.9
     - python >=3.8
     - pyelftools >=0.24
     - __linux
