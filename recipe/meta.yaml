@@ -19,9 +19,9 @@ build:
 requirements:
   host:
     - python >=3.8
-    - setuptools >=45
+    - setuptools >=61
     - wheel
-    - setuptools-scm >=6.2
+    - setuptools-scm >=8
     - pip
   run:
     - packaging >=20.9
