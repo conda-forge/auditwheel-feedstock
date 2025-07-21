@@ -14,7 +14,7 @@ build:
     - auditwheel = auditwheel.main:main
   noarch: python
   script: {{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
-  number: 0
+  number: 1
 
 requirements:
   host:
@@ -24,10 +24,14 @@ requirements:
     - setuptools-scm >=8
     - pip
   run:
+    # Previously the package used to have a requirement on __linux since the it heavily rely on
+    # readelf etc. tools (the CLI in particular).
+    # However some part of the library are still universally useful so it was removed by user
+    # requests.
+    # This is akin the the PyPI package which can be installed on any platform.
     - packaging >=20.9
     - python >={{ python_min }}
     - pyelftools >=0.24
-    - __linux
 
 test:
   imports:
